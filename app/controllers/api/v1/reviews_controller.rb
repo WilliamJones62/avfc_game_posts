@@ -3,7 +3,16 @@ class Api::V1::ReviewsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def create
-    @review = Review.new(review_params)
+    review = game.reviews.new(review_params)
+    if review.save
+      head :no_content
+    else
+      render json: { error: review.errors.messages }, statue: 422
+    end
+  end
+
+  def game
+      @game ||= Game.find(params[:game_id])
   end
 
   private
