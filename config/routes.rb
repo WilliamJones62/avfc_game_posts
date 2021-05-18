@@ -5,4 +5,6 @@ Rails.application.routes.draw do
       resources :reviews
     end
   end
+  get 'matches/main'
+  root 'matches#main'
 end

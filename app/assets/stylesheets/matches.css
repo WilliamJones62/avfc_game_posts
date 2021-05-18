@@ -1,0 +1,32 @@
+body {
+  background-image: linear-gradient(to bottom right, rgba(103,14,56,1), rgba(148,190,229,1));
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.grid-item {
+  text-align: center;
+  background-color: white;
+}
+
+.grid-item-1 {
+  grid-column: span 2;
+}
+
+.grid-item-2 {
+}
+
+.grid-item-3 {
+}
+
+.grid-item-4 {
+}

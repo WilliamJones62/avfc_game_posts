@@ -1,0 +1,45 @@
+<div class="grid-container">
+  <div class="grid-item grid-item-1">
+    <!-- <span class="primary-logo">
+    </span> -->
+    <img src="/assets/aston-villa-logo.svg" alt="villa logo" width="100" height="100">
+    <h1>AVFC Game Reviews</h1>
+    <div><b>Opponent:</b> <%= @match.opponent %> <b>H/A:</b> <% if @match.home %>Home <% else %>Away <% end %> <b>Score:</b> <%= @match.score %> <b>Date:</b> <%= display_date(@match.game_date) %></div>
+  </div>
+  <div class="grid-item grid-item-2">
+    <h3>Previous Reviews</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @match.reviews.each do |r| %>
+        <tr>
+          <td><%=r.title%></td>
+          <td><%=r.description%></td>
+          <td><%=r.rating%></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="grid-item grid-item-3">
+    <h3>Write A Review</h3>
+    <form class="" action="index.html" method="post">
+
+    </form>
+  </div>
+  <div class="grid-item grid-item-4">
+    <label>Select Another Match: </label>
+    <select class="matches" name="matches">
+      <% @matches.each do |m| %>
+        <% @match_data = m.opponent + ' ' + display_date(@match.game_date) %>
+        <option value="<%=@match_data%>"><%=@match_data%></option>
+      <% end %>
+    </select>
+  </div>
+</div>
