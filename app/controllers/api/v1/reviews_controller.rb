@@ -3,7 +3,10 @@ class Api::V1::ReviewsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def create
-    review = game.reviews.new(review_params)
+    review = game.reviews.new
+    review.title = review_params[:title]
+    review.description = review_params[:description]
+    review.rating = review_params[:rating]
     if review.save
       head :no_content
     else
@@ -12,13 +15,14 @@ class Api::V1::ReviewsController < ApplicationController
   end
 
   def game
-      @game ||= Game.find(params[:game_id])
+    logger.info 'formatted_date = ' + review_params[:formatted_date]
+    @game ||= Game.find_by(formatted_date: review_params[:formatted_date])
   end
 
   private
      def review_params
        params.require(:review).permit(
-         :title, :description, :rating, :game_id
+         :title, :description, :rating, :formatted_date
        )
      end
 end

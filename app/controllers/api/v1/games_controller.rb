@@ -3,7 +3,7 @@ class Api::V1::GamesController < ApplicationController
   protect_from_forgery with: :null_session
 
   def show
-    @game = Game.find(params[:id])
+    @game = Game.find_by(formatted_date: params[:formatted_date])
     @reviews = @game.reviews.all
   end
 

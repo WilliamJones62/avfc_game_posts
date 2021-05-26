@@ -2,13 +2,13 @@
   <div class="grid-item grid-item-1">
     <!-- <span class="primary-logo">
     </span> -->
-    <img src="/assets/aston-villa-logo.svg" alt="villa logo" width="100" height="100">
+    <img class="float-left" src="/assets/aston-villa-logo.svg" alt="villa logo" width="100" height="100">
     <h1>AVFC Game Reviews</h1>
-    <div><b>Opponent:</b> <%= @match.opponent %> <b>H/A:</b> <% if @match.home %>Home <% else %>Away <% end %> <b>Score:</b> <%= @match.score %> <b>Date:</b> <%= display_date(@match.game_date) %></div>
+    <div><b>Opponent:</b> <span id="opponent"> <%= @match.opponent %> </span><b>H/A:</b> <span id="ha"> <% if @match.home %>Home <% else %>Away <% end %> </span><b>Score:</b> <span id="score"> <%= @match.score %> </span><b>Date:</b> <span id="date"><%= display_date(@match.game_date) %></span></div>
   </div>
   <div class="grid-item grid-item-2">
     <h3>Previous Reviews</h3>
-    <table>
+    <table class="center" id="prevReviews">
       <thead>
         <tr>
           <th>Title</th>
@@ -29,15 +29,19 @@
   </div>
   <div class="grid-item grid-item-3">
     <h3>Write A Review</h3>
-    <form class="" action="index.html" method="post">
-
+    <form class="form" name="review" onsubmit="addReview();return false">
+      <input type="text" name="title" placeholder="Title"><br>
+      <input type="text" name="description" placeholder="Your Review"><br>
+      <label for="rating">Team Rating (between 1 and 5):</label>
+      <input type="number" name="rating" min="1" max="5" step="1"><br><br>
+      <input type="submit" value="Submit">
     </form>
   </div>
   <div class="grid-item grid-item-4">
-    <label>Select Another Match: </label>
-    <select class="matches" name="matches">
+    <h3>Select Another Match</h3>
+    <select class="matches" name="matches" id="matches" onchange="anotherMatch()">
       <% @matches.each do |m| %>
-        <% @match_data = m.opponent + ' ' + display_date(@match.game_date) %>
+        <% @match_data = m.opponent + ' ' + m.formatted_date %>
         <option value="<%=@match_data%>"><%=@match_data%></option>
       <% end %>
     </select>

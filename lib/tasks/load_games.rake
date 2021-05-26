@@ -4,6 +4,7 @@ task :loadgames => [ :environment ] do
   }
   response = HTTParty.get('https://api.football-data.org/v2/teams/58/matches',
   :headers => headers)
+  Review.delete_all
   Game.delete_all
   response["matches"].each do |m|
     game = Game.new

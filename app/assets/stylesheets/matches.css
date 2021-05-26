@@ -10,12 +10,14 @@ body {
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
+  grid-gap: 20px;
+  padding: 20px;
 }
 
 .grid-item {
   text-align: center;
   background-color: white;
+  border-radius: 25px;
 }
 
 .grid-item-1 {
@@ -29,4 +31,60 @@ body {
 }
 
 .grid-item-4 {
+}
+
+.float-left {
+  float: left;
+  position: relative;
+}
+
+select {
+  margin-bottom: 5px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 95%;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
+
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+}
+
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type=text] {
+  width: 90%;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
 }
