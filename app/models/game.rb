@@ -6,7 +6,7 @@ class Game < ApplicationRecord
     self.formatted_date = self.game_date.strftime("%m-%d-%Y")
   end
 
-  def avg_score
-    reviews.average(:score).round(2).to_f
+  def avg_rating
+    reviews.average(:rating).round(2).to_f
   end
 end

@@ -3,10 +3,12 @@ function showMatch() {
   var ha = document.getElementById("ha");
   var score = document.getElementById("score");
   var date = document.getElementById("date");
+  var avgRating = document.getElementById("avgRating");
   var resp = JSON.parse(this.responseText);
   opponent.innerHTML = resp["opponent"] + " ";
   score.innerHTML = resp["score"] + " ";
-  date.innerHTML = resp["formatted_date"];
+  date.innerHTML = resp["formatted_date"] + " ";
+  avgRating.innerHTML = resp["rating"];
   ha.innerHTML = "Away ";
   if (resp["home"]) {
     ha.innerHTML = "Home ";
