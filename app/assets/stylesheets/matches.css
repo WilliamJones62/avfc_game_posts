@@ -1,6 +1,5 @@
 body {
   background-image: linear-gradient(to bottom right, rgba(103,14,56,1), rgba(148,190,229,1));
-  /* display: flex; */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -22,15 +21,22 @@ body {
 
 .grid-item-1 {
   grid-column: span 2;
+  padding-bottom: 10px;
+
 }
 
 .grid-item-2 {
+  overflow-y: scroll;
+  max-height: 50vh;
 }
 
 .grid-item-3 {
+  max-height: 50vh;
 }
 
 .grid-item-4 {
+  grid-column: span 2;
+  padding-bottom: 10px;
 }
 
 .float-left {
@@ -44,11 +50,10 @@ select {
 
 table {
   border-collapse: collapse;
-  border-spacing: 0;
+  border-spacing: 10px 0;
   width: 95%;
   border: 1px solid #ddd;
   margin-bottom: 5px;
-
 }
 
 th, td {
@@ -56,7 +61,11 @@ th, td {
   padding: 16px;
 }
 
-tr:nth-child(odd) {
+th {
+  background-color: #94bee5;
+}
+
+tr:nth-child(even) {
   background-color: #f2f2f2;
   border: 1px solid #ddd;
 }
@@ -75,9 +84,9 @@ input[type=text] {
   box-sizing: border-box;
 }
 
-input[type=submit] {
+input[type=button] {
   width: 50%;
-  background-color: #4CAF50;
+  background-color: #8c1d51;
   color: white;
   margin: 8px 0;
   border: none;
@@ -85,6 +94,45 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
-  background-color: #45a049;
+input[type=button]:hover {
+  background-color: #670e38;
+}
+
+textarea {
+  width: 90%;
+}
+
+.rating-css input {
+  display: none;
+}
+
+.rating-css input + label {
+  text-shadow: 1px 1px 0 #ffd700;
+  cursor: pointer;
+  color: black;
+}
+
+.rating-css input:hover + label {
+  color: #ffd700;
+}
+
+.rating-css input:hover ~ label {
+  color: #ffd700;
+}
+
+.rating-css input:checked + label {
+  color: #ffd700;
+}
+
+.rating-css input:checked ~ label {
+  color: #ffd700;
+}
+
+.star-icon {
+  transform: rotate(180deg);
+  padding-top: 5px;
+}
+
+button {
+  padding-bottom: 5px;
 }

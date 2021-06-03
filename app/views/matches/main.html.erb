@@ -4,7 +4,10 @@
     </span> -->
     <img class="float-left" src="/assets/aston-villa-logo.svg" alt="villa logo" width="100" height="100">
     <h1>AVFC Game Reviews</h1>
-    <div><b>Opponent:</b> <span id="opponent"> <%= @match.opponent %> </span><b>H/A:</b> <span id="ha"> <% if @match.home %>Home <% else %>Away <% end %> </span><b>Score:</b> <span id="score"> <%= @match.score %> </span><b>Date:</b> <span id="date"><%= display_date(@match.game_date) %> </span><b>Villa Rating:</b> <span id="avgRating"><%= @match.avg_rating %></span></div>
+    <div>
+      <b>Opponent:</b> <span id="opponent"> <%= @match.opponent %> </span><b>H/A:</b> <span id="ha"> <% if @match.home %>Home <% else %>Away <% end %> </span><b>Score:</b> <span id="score"> <%= @match.score %> </span><br>
+      <b>Date:</b> <span id="date"><%= display_date(@match.game_date) %> </span><b>Villa Rating:</b> <span id="avgRating"><%= @match.avg_rating %></span>
+    </div>
   </div>
   <div class="grid-item grid-item-2">
     <h3>Previous Reviews</h3>
@@ -29,12 +32,22 @@
   </div>
   <div class="grid-item grid-item-3">
     <h3>Write A Review</h3>
-    <form class="form" name="review" onsubmit="addReview();return false">
+    <form class="form" name="review">
       <input type="text" name="title" placeholder="Title"><br>
-      <input type="text" name="description" placeholder="Your Review"><br>
-      <label for="rating">Team Rating (between 1 and 5):</label>
-      <input type="number" name="rating" min="1" max="5" step="1"><br><br>
-      <input type="submit" value="Submit">
+      <textarea name="description" rows="4" placeholder="Your Review"></textarea>
+      <!-- <input type="text" name="description" placeholder="Your Review"><br> -->
+      <div class="rating-css">
+        <div>Rate Villa's Team Performance</div>
+        <div class="star-icon">
+          <input type="radio" name="star" id="star1"><label for="star1" class="fas fa-futbol"></label>
+          <input type="radio" name="star" id="star2"><label for="star2" class="fas fa-futbol"></label>
+          <input type="radio" name="star" id="star3"><label for="star3" class="fas fa-futbol"></label>
+          <input type="radio" name="star" id="star4"><label for="star4" class="fas fa-futbol"></label>
+          <input type="radio" name="star" id="star5"><label for="star5" class="fas fa-futbol"></label>
+        </div>
+      </div>
+      <!-- <input type="number" name="rating" min="1" max="5" step="1"><br><br> -->
+      <input type="button" value="Submit" onclick="addReview()">
     </form>
   </div>
   <div class="grid-item grid-item-4">

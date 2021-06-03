@@ -47,7 +47,18 @@ function anotherMatch() {
 function addReview() {
   var title = document.forms["review"]["title"].value;
   var description = document.forms["review"]["description"].value;
-  var rating = document.forms["review"]["rating"].value;
+  var rating = 0;
+  if (document.forms["review"]["star1"].checked) {
+    rating = 5;
+  } else if (document.forms["review"]["star2"].checked) {
+    rating = 4;
+  } else if (document.forms["review"]["star3"].checked) {
+    rating = 3;
+  } else if (document.forms["review"]["star4"].checked) {
+    rating = 2;
+  } else if (document.forms["review"]["star5"].checked) {
+    rating = 1;
+  }
   var date = document.getElementById("date");
   var formattedDate = date.innerHTML;
   formattedDate = formattedDate.trim();
@@ -80,5 +91,9 @@ function addReview() {
   req.send(data);
   document.forms["review"]["title"].value = '';
   document.forms["review"]["description"].value = '';
-  document.forms["review"]["rating"].value = '';
+  document.forms["review"]["star1"].checked = false;
+  document.forms["review"]["star2"].checked = false;
+  document.forms["review"]["star3"].checked = false;
+  document.forms["review"]["star4"].checked = false;
+  document.forms["review"]["star5"].checked = false;
 }
